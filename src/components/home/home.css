@@ -1,0 +1,10 @@
+.burgerMenu {
+    font-size:30px;
+    cursor:pointer;
+    color: white;
+}
+
+.navbarConnect{
+    color: white;
+    text-decoration: none;
+}
