@@ -1,12 +1,25 @@
 import React from 'react';
 import NavBar from '../navbar/NavBar';
+import {
+  BrowserRouter as
+    Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 
-function Home () {
+function Home() {
   return (
-    <div>
-      <NavBar />
-      <h1>Hello World</h1>
-    </div>
+    <Router >
+      <div>
+        <NavBar />
+      </div>
+      <Switch>
+        <Route></Route>
+        <Route></Route>
+        <Route></Route>
+      </Switch>
+    </Router>
   )
 };
 
