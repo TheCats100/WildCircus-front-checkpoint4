@@ -1,0 +1,26 @@
+.introBlock {
+    height: 90vh;
+}
+
+.introTitle{
+    color: white;
+    font-family: 'Amatic SC';
+}
+
+.introPara{
+    color: white;
+    font-family: 'URW Chancery L, cursive';
+    margin-bottom: 8rem;
+}
+
+.introLink{
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    padding: 1.2rem;
+}
+
+.introLink:visited{
+    text-decoration: none;
+    color: white;
+}
