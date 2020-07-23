@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 function Casino({ wildpoints }) {
   return (
     <div className="block">
-      <p>{wildpoints}</p>
+      <p className="colorText">{wildpoints}</p>
     </div>
   )
 };
