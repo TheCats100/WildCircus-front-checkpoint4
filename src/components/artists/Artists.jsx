@@ -16,10 +16,10 @@ function Artists() {
     <div className="block">
       {allArtists.map((artists) => {
         return (
-          <>
+          <div className="artistsBlock">
             <p>{artists.name}</p>
             <p>{artists.job}</p>
-          </>
+          </div>
         )
       })}
     </div>
