@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../navbar/NavBar';
 import {
   BrowserRouter as
@@ -7,6 +7,7 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Artists from '../artists/Artists';
 import Casino from '../casino/Casino';
@@ -18,12 +19,28 @@ import Accueil from './Accueil';
 import Representation from '../representation/Representation';
 
 import './home.css';
+import Axios from 'axios';
 
-function Home() {
+const mapStateToProps = (state) => ({
+  token: state.token,
+  id: state.id
+});
+
+function Home({ id, token }) {
+  const [user, setUser] = useState(null)
 
   function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
   }
+
+  useEffect(() => {
+    if (token) {
+      Axios.get(`http://localhost:8000/users/${id}`)
+        .then((res) => res.data)
+        .then((data) => setUser(data.pseudo))
+        .catch((err) => console.log(err))
+    }
+  });
 
   return (
     <Router >
@@ -31,7 +48,7 @@ function Home() {
         <span className="burgerMenu" onClick={() => openNav()}>&#9776;</span>
         <NavBar />
         <Link to="/" className="titleWild">WildCircus</Link>
-        <Link to="/login" className="navbarConnect">Se connecter ?</Link>
+        {user ? <p className="userProfil">{user}</p> : <Link to="/login" className="navbarConnect">Se connecter ?</Link>}
       </div>
       <Switch>
         <div id="componentsBlock">
@@ -50,9 +67,7 @@ function Home() {
           <Route exact path="/performances">
             <Performances />
           </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
+          <Route component={Login} exact path="/login" />
           <Route component={Register} exact path="/register" />
           <Route exact path="/representations">
             <Representation />
@@ -63,4 +78,4 @@ function Home() {
   )
 };
 
-export default Home;
+export default connect(mapStateToProps)(Home);

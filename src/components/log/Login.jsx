@@ -1,27 +1,44 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import { connect } from 'react-redux';
 
 import './login.css';
 
-function Login() {
+const mapStateToProps = (state) => ({
+  token: state.token,
+});
+
+function Login({ dispatch, history }) {
   const [user, setUser] = useState({})
   return (
     <div className="block">
       <form className="loginForm" onSubmit={(event) => {
         event.preventDefault();
         Axios.post('http://localhost:8000/auth/login', { ...user })
-          .catch((err) => console.log(err))
+
           .then((res) => res.data)
-          .then((data) => console.log(data))
+          .then((data) => {
+            dispatch({
+              type: 'SETTOKEN',
+              newToken: data.token,
+              newId: data.user.id,
+              newadmin: data.user.admin,
+            })
+            history.push('/')
+          })
+          .catch((err) => {
+            console.log(err)
+            alert('error')
+          })
       }}>
         <label>
           Email
-          <input type="text" name="email_login" required="1" onChange={(e) => setUser({...user, email: e.target.value})}/>
+          <input type="text" name="email_login" required="1" onChange={(e) => setUser({ ...user, email: e.target.value })} />
         </label>
         <label>
           Password
-          <input type="password" name="password_login" required="1" onChange={(e) => setUser({...user, password: e.target.value})}/>
+          <input type="password" name="password_login" required="1" onChange={(e) => setUser({ ...user, password: e.target.value })} />
         </label>
         <button type="submit" className="loginButton">Confirm</button>
       </form>
@@ -30,4 +47,4 @@ function Login() {
   )
 };
 
-export default Login;
+export default connect(mapStateToProps)(Login);
