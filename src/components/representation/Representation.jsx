@@ -73,6 +73,11 @@ function Representation({ token, wildpoints, id, dispatch }) {
               <div className="colorText">
                 <p>{representation.localisation}</p>
                 <p>{representation.date_rep}</p>
+                <button onClick={() => {
+                  Axios.delete(`http://localhost:8000/buy/${id}/representations/${representation.representations_id}`)
+                    .catch((err) => console.log(err))
+                    .then(() => getMyRepresentations())
+                }}>Cancel</button>
               </div>
             )
           })}
