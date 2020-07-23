@@ -1,0 +1,8 @@
+.registerForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.registerButton{
+    align-self: flex-end;
+}

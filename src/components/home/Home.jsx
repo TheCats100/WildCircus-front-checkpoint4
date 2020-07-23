@@ -53,9 +53,7 @@ function Home() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
+          <Route component={Register} exact path="/register" />
           <Route exact path="/representations">
             <Representation />
           </Route>
