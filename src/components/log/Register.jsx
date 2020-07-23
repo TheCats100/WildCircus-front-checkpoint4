@@ -14,21 +14,21 @@ function Register({ history }) {
           .then(() => history.push('/login'))
           .catch((err) => console.log(err))
       }}>
-        <label>
+        <label className="colorText">
           Email
           <input type="text" name="email_register" required="1" onChange={(e) => setUser({...user, email: e.target.value})}/>
         </label>
-        <label>
+        <label className="colorText">
           Password
           <input type="password" name="password_register" required="1" onChange={(e) => setUser({...user, password: e.target.value})}/>
         </label>
-        <label>
+        <label className="colorText">
           Pseudo
           <input type="text" name="pseudo_register" required="1" onChange={(e) => setUser({...user, pseudo: e.target.value})}/>
         </label>
         <button type="submit" className="registerButton">Confirm</button>
       </form>
-      <Link to="/login">Se connecter</Link>
+      <Link to="/login" className="colorText">Se connecter</Link>
     </div>
   )
 };

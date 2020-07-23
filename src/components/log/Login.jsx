@@ -33,17 +33,17 @@ function Login({ dispatch, history }) {
             alert('error')
           })
       }}>
-        <label>
+        <label className="colorText">
           Email
           <input type="text" name="email_login" required="1" onChange={(e) => setUser({ ...user, email: e.target.value })} />
         </label>
-        <label>
+        <label className="colorText">
           Password
           <input type="password" name="password_login" required="1" onChange={(e) => setUser({ ...user, password: e.target.value })} />
         </label>
         <button type="submit" className="loginButton">Confirm</button>
       </form>
-      <Link to="/register">S'inscrire</Link>
+      <Link to="/register" className="colorText">S'inscrire</Link>
     </div>
   )
 };
