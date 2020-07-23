@@ -1,14 +1,16 @@
 .burgerMenu {
     font-size:30px;
     cursor:pointer;
-    color: white;
+    color: orange;
+    text-shadow:  1px 1px 2px black;
 }
 
 .navbarConnect{
-    color: white;
+    color: orange;
     text-decoration: none;
+    text-shadow:  1px 1px 2px black;
 }
 
 .userProfil{
-    color: white;
+    color: orange;
 }
