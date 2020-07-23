@@ -2,3 +2,10 @@
   background-color: #6D6D6D;
 }
 
+.colorText{
+  color:white;
+}
+
+.block{
+  min-height: 90vh;
+}

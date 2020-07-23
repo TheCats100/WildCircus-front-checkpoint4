@@ -24,6 +24,7 @@ function Login({ dispatch, history }) {
               newToken: data.token,
               newId: data.user.id,
               newadmin: data.user.admin,
+              newWildPoints: data.user.wildpoints
             })
             history.push('/')
           })

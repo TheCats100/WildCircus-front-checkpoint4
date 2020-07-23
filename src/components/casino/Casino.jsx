@@ -1,11 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Casino() {
+const mapStateToProps = (state) => ({
+  token: state.token,
+  wildpoints: state.wildpoints,
+  id: state.id
+});
+
+function Casino({ wildpoints }) {
   return (
-    <div>
-      <p>Hello from Casino</p>
+    <div className="block">
+      <p>{wildpoints}</p>
     </div>
   )
 };
 
-export default Casino;
+export default connect(mapStateToProps)(Casino);
