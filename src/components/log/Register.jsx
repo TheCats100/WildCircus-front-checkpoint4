@@ -10,7 +10,7 @@ function Register({ history }) {
     <div className="block">
       <form className="registerForm" onSubmit={(event) => {
         event.preventDefault();
-        Axios.post('http://localhost:8000/users', { ...user, wildpoints: 100 })
+        Axios.post('http://localhost:8000/users', { ...user, wildpoints: 100, admin: 0})
           .then(() => history.push('/login'))
           .catch((err) => console.log(err))
       }}>
