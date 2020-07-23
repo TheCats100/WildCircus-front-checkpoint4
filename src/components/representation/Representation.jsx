@@ -40,8 +40,8 @@ function Representation({ token, wildpoints, id, dispatch }) {
           return (
             <div className="representationsBlock">
               <p>{representation.localisation}</p>
-              <p>{representation.date_rep}</p>
-              <button type="button" onClick={() => {
+              <p>{representation.date_rep.slice(0,10)}</p>
+              <button type="button" className="buttonBuy" onClick={() => {
                 if (!token) {
                   alert('you need to be connected')
                 }
@@ -72,8 +72,8 @@ function Representation({ token, wildpoints, id, dispatch }) {
             return (
               <div className="colorText">
                 <p>{representation.localisation}</p>
-                <p>{representation.date_rep}</p>
-                <button onClick={() => {
+                <p>{representation.date_rep.slice(0,10)}</p>
+                <button  className="buttonBuy" onClick={() => {
                   Axios.delete(`http://localhost:8000/buy/${id}/representations/${representation.representations_id}`)
                     .catch((err) => console.log(err))
                     .then(() => getMyRepresentations())

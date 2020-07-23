@@ -1,0 +1,17 @@
+.contactForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.contactForm label{
+    color:white;
+}
+
+.contactSubmit{
+    align-self: center;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 0.7rem;
+    border-radius: 50%;
+}
